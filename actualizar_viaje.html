@@ -8,8 +8,6 @@
 
     <title>Update Travel template</title>
 
-    <script type="text/javascript" src="jQuery.js"></script>
-
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -18,55 +16,51 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="estilo.css">
-
-</head>
-
-<body>
     <!--Javascript-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/updateTrip.js"></script>
+</head>
 
+<body>
     <div class="container-fluid">
     </div>
     <div class="container text-center">
         <div>
-            <form>
+            <form id="updateTripForm">
                 <h3 class="p-3 text-success border-bottom border-success">Actualizar datos del viaje:</h3>
                 <br>
                 <div class="contenido_formulario text-left">
                     <label>Origen:</label>
                     <br>
-                    <input id="cajas" type="text" class="mb-3 p-1" required autofocus>
+                    <input id="origin" name="origin" type="text" class="mb-3 p-1" required autofocus>
                     <br><label>Destino:</label>
                     <br>
-                    <input id="cajas" type="text" class="mb-3 p-1" required>
+                    <input id="destination" name="destination" type="text" class="mb-3 p-1" required>
                     <br><label>Fecha de inicio:</label>
                     <br>
-                    <input id="cajas" type="date" class="mb-3 p-1" required>
+                    <input id="startDate" name="startDate" type="date" class="mb-3 p-1" required>
                     <br><label>Fecha fin:</label>
                     <br>
-                    <input id="cajas" type="date" class="mb-3 p-1" required>
+                    <input id="endDate" name="endDate" type="date" class="mb-3 p-1" required>
                     <br><label>Motivo:</label>
                     <br>
                     <label class="btn btn-outline-success">
-                        <input type="radio" name="options" id="ocio" autocomplete="off"> Ocio
+                        <input type="radio" name="options" autocomplete="off" value="1"> Ocio
                     </label>
                     <label class="btn btn-outline-success">
-                        <input type="radio" name="options" id="trabajo" autocomplete="off"> Trabajo
+                        <input type="radio" name="options" autocomplete="off" value="3"> Trabajo
                     </label>
                     <br>
-
                 </div>
-                <button type="submit" class="btn btn-success">Retroceder</button>
-                <button type="submit" class="btn btn-success">Actualizar datos</button>
+                <button id="back" name="back" type="submit" class="btn btn-success">Retroceder</button>
+                <button id="send" name="send" type="submit" class="btn btn-success">Actualizar datos</button>
             </form>
         </div>
     </div>

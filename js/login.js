@@ -11,11 +11,10 @@ $(document).ready(function () {
       }),
       success: function (user) {
         // Guardar el id en la sesion
-        alert('Bienvenida '+user.username + '. Tu id es '+user.id);
-        localStorage['userId']=user.id;
+        localStorage['userId'] = user.id;
         window.location.href = "mostrar_datos.html";
       },
-      error: function(/*xhr, textStatus, errorThrown*/){
+      error: function () {
         alert('Ha ocurrido un error inesperado');
       }
     });
