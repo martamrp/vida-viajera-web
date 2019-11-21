@@ -39,19 +39,21 @@
                 <h3 class="p-3 text-primary border-bottom border-primary">Registro de un nuevo viaje:</h3>
 
                 <br>
-                <div class="contenido_formulario text-left">
-                    <label>Origen:</label>
-                    <br>
+                <div class="col-md-2 contenido_formulario text-left">
+                    <label>Origen:</label>                   
                     <input id="origin" name="origin" type="text" class="mb-3 p-1" required autofocus>
+                    <label>País origen:</label>
+                    <input id="originCountry" name="originCountry" type="text" class="mb-3 p-1" required>
                     <br><label>Destino:</label>
-                    <br>
                     <input id="destination" name="destination" type="text" class="mb-3 p-1" required>
+                    <label>País destino:</label>
+                    <input id="destinationCountry" name="destinationCountry" type="text" class="mb-3 p-1" required>
                     <br><label>Fecha de inicio:</label>
-                    <br>
                     <input id="startDate" name="startDate" type="date" class="mb-3 p-1" required>
-                    <br><label>Fecha fin:</label>
-                    <br>
+                    <label>Fecha fin:</label>
                     <input id="endDate" name="endDate" type="date" class="mb-3 p-1" required>
+                    <br><label>Precio total:</label>                   
+                    <input id="price" name="price" type="number" class="mb-3 p-1" required>
                     <br><label>Motivo:</label>
                     <br>
                     <label class="btn btn-outline-primary">
