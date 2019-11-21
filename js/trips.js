@@ -1,11 +1,13 @@
 $(document).ready(function () {
     var userId = localStorage['userId'];
+    var username = localStorage['username'];
     if (userId === undefined) {
         window.location.href = "login.html";
     }
 
     $("#logout").click(function () {
         localStorage.removeItem('userId');
+        localStorage.removeItem('username');
     });
 
     $.ajax({
@@ -13,6 +15,9 @@ $(document).ready(function () {
         url: "http://localhost:8080/users/" + userId + "/trips",
         success: function (trips) {
             var table = $('#tripsTable').DataTable({
+                "language":{
+                    "url":"https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
+                },
                 "data": trips,
                 "columns": [
                     { "data": "origin" },
@@ -89,4 +94,6 @@ $(document).ready(function () {
             alert('Ha ocurrido un error inesperado');
         }
     });
+    var totalDias=" ";
+    $("#totalDias").text(username+", en total y hasta la fecha has viajado "+totalDias+" días.");
 });

@@ -12,6 +12,7 @@ $(document).ready(function () {
       success: function (user) {
         // Guardar el id en la sesion
         localStorage['userId'] = user.id;
+        localStorage['username'] = user.username;
         window.location.href = "mostrar_datos.html";
       },
       error: function () {
