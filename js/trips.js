@@ -44,6 +44,7 @@ $(document).ready(function () {
                             return '<img src="./img/icons8-briefcase-100.png" width="32px" title="Trabajo" />';
                         }
                     },
+                    { "data": "precio" },
                     {
                         "data": null,
                         "sortable": false,
