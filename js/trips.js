@@ -15,8 +15,8 @@ $(document).ready(function () {
         url: "http://localhost:8080/users/" + userId + "/trips",
         success: function (trips) {
             var table = $('#tripsTable').DataTable({
-                "language":{
-                    "url":"https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
                 },
                 "data": trips,
                 "columns": [
@@ -26,25 +26,26 @@ $(document).ready(function () {
                     { "data": "endDate" },
                     {
                         "data": null,
-                        "sortable": false,
-                        "render": function (data, type, full) {
-                            const startDate = new Date(data.startDate);
-                            const endDate = new Date(data.endDate);
-                            const diffTime = Math.abs(endDate - startDate);
-                            return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                        "render": function (trip) {
+                            return getTotalDays(new Date(trip.startDate),new Date(trip.endDate));
                         }
                     },
                     {
                         "data": null,
                         "sortable": false,
-                        "render": function (data, type, full) {
-                            if (data.reasonId == 1) {
+                        "render": function (trip) {
+                            if (trip.reasonId == 1) {
                                 return '<img src="./img/icons8-beach-100.png" width="32px" title="Ocio" />';
                             }
                             return '<img src="./img/icons8-briefcase-100.png" width="32px" title="Trabajo" />';
                         }
                     },
-                    { "data": "price" },
+                    {
+                        "data": null,
+                        "render": function (trip) {
+                            return trip.price + ' €';
+                        }
+                    },
                     {
                         "data": null,
                         "sortable": false,
@@ -55,6 +56,16 @@ $(document).ready(function () {
                     }
                 ]
             });
+
+            var startDateColumn = table.column(2).data();
+            var endDateColumn = table.column(3).data();
+
+            var totalDays = 0;
+            for (var i=0;i<startDateColumn.length;i++){
+                totalDays += getTotalDays(new Date(startDateColumn[i]), new Date(endDateColumn[i]));
+            }
+
+            $('#totalDias').text(username + ", en total y hasta la fecha has viajado " + totalDays + " días.");
 
             $('#tripsTable').on('click', '#update', function () {
                 var trip = table.row($(this).parents('tr')).data();
@@ -95,6 +106,9 @@ $(document).ready(function () {
             alert('Ha ocurrido un error inesperado');
         }
     });
-    var totalDias=" ";
-    $("#totalDias").text(username+", en total y hasta la fecha has viajado "+totalDias+" días.");
 });
+
+function getTotalDays(startDate, endDate) {
+    const diffTime = Math.abs(endDate - startDate);
+    return Math.ceil(diffTime / (1000 * 60 * 60 * 24))+1;
+}

@@ -13,10 +13,13 @@ $(document).ready(function () {
     else {
         var trip = JSON.parse(tripToUpdate);
         $("#origin").val(trip.origin);
+        $("#originCountry").val(trip.originCountry);
         $("#destination").val(trip.destination);
+        $("#destinationCountry").val(trip.destinationCountry); 
         $("#startDate").val(trip.startDate);
         $("#endDate").val(trip.endDate);
         $("input:radio[name='options'][value=" + trip.reasonId + "]").prop('checked', true);
+        $("#price").val(trip.price);
     }
 
     $("#back").click(function () {
@@ -36,10 +39,13 @@ function updateTrip() {
         id: trip.id,
         userId: trip.userId,
         origin: $('#origin').val(),
+        originCountry: $('#originCountry').val(),
         destination: $('#destination').val(),
+        destinationCountry: $('#destinationCountry').val(),
         startDate: $('#startDate').val(),
         endDate: $('#endDate').val(),
-        reasonId: $("input:radio[name='options']:checked").val()
+        reasonId: $("input:radio[name='options']:checked").val(),
+        price: $('#price').val()
     })
     $.ajax({
         type: "PUT",

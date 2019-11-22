@@ -15,10 +15,13 @@ function createTrip() {
     var json = JSON.stringify({
         userId: localStorage['userId'],
         origin: $('#origin').val(),
+        originCountry: $('#originCountry').val(),
         destination: $('#destination').val(),
+        destinationCountry: $('#destinationCountry').val(),
         startDate: $('#startDate').val(),
         endDate: $('#endDate').val(),
-        reasonId: $("input:radio[name='options']:checked").val()
+        reasonId: $("input:radio[name='options']:checked").val(),
+        price: $('#price').val()
     })
     $.ajax({
         type: "POST",
