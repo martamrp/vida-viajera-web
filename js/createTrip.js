@@ -2,9 +2,15 @@ $(document).ready(function () {
     if (localStorage['userId'] === undefined) {
         window.location.href = "login.html";
     }
+
+    $("#logout").click(function () {
+        localStorage.removeItem('userId');
+    });
+
     $("#back").click(function () {
         window.location.href = "mostrar_datos.html";
     });
+
     $("#addTripForm").submit(function (event) {
         event.preventDefault();
         createTrip();
