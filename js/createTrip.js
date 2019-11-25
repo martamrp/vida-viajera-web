@@ -15,6 +15,23 @@ $(document).ready(function () {
         event.preventDefault();
         createTrip();
     });
+
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:8080/countries",
+        contentType: "application/json",
+        success: function (countries) {
+            var originCountrySelect = document.getElementById("originCountry");
+            var destinationCountrySelect = document.getElementById("destinationCountry");
+            countries.forEach(country => {
+                originCountrySelect.options[originCountrySelect.options.length] = new Option(country.name, country.code);
+                destinationCountrySelect.options[destinationCountrySelect.options.length] = new Option(country.name, country.code);
+            });
+        },
+        error: function () {
+            alert('Ha ocurrido un error inesperado');
+        }
+    });
 });
 
 function createTrip() {
