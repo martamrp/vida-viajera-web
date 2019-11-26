@@ -16,20 +16,39 @@ $(document).ready(function () {
         window.location.href = "mostrar_datos.html";
     }
     else {
+
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/countries",
+            contentType: "application/json",
+            success: function (countries) {
+                var originCountrySelect = document.getElementById("originCountry");
+                var destinationCountrySelect = document.getElementById("destinationCountry");
+                countries.forEach(country => {
+                    originCountrySelect.options[originCountrySelect.options.length] = new Option(country.name, country.code);
+                    destinationCountrySelect.options[destinationCountrySelect.options.length] = new Option(country.name, country.code);
+                });
+            },
+            error: function () {
+                alert('Ha ocurrido un error inesperado');
+            }
+        });
+
         var trip = JSON.parse(tripToUpdate);
         $("#origin").val(trip.origin);
-        $("#originCountry").val(trip.originCountry);
+        //$("#originCountry").find("option[value="+trip.originCountry+"]").index();
+        $("#originCountry").val(trip.originCountry).prop('selected', true);
         $("#destination").val(trip.destination);
-        $("#destinationCountry").val(trip.destinationCountry); 
+       // $("#destinationCountry").val(trip.destinationCountry);
         $("#startDate").val(trip.startDate);
         $("#endDate").val(trip.endDate);
         $("input:radio[name='options'][value=" + trip.reasonId + "]").prop('checked', true);
         $("#price").val(trip.price);
     }
 
-    $("#back").click(function () {
-        window.location.href = "mostrar_datos.html";
-    });
+    // $("#back").click(function () {
+    //     window.location.href = "mostrar_datos.html";
+    // });
 
     $("#updateTripForm").submit(function (event) {
         event.preventDefault();
@@ -52,6 +71,9 @@ function updateTrip() {
         reasonId: $("input:radio[name='options']:checked").val(),
         price: $('#price').val()
     })
+
+
+
     $.ajax({
         type: "PUT",
         url: "http://localhost:8080/trips/" + trip.id,

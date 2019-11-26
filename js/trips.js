@@ -18,6 +18,8 @@ $(document).ready(function () {
                 "language": {
                     "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
                 },
+                "pageLength": 8,
+                "lengthMenu": [8,10,25,50],
                 "data": trips,
                 "columns": [
                     { "data": "origin" },

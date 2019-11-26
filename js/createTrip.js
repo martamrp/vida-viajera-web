@@ -7,9 +7,9 @@ $(document).ready(function () {
         localStorage.removeItem('userId');
     });
 
-    $("#back").click(function () {
-        window.location.href = "mostrar_datos.html";
-    });
+    // $("#back").click(function () {
+    //     window.location.href = "mostrar_datos.html";
+    // });
 
     $("#addTripForm").submit(function (event) {
         event.preventDefault();
