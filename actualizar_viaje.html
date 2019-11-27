@@ -29,7 +29,7 @@
 </head>
 
 <body>
-        <object data="html/header.html" width="100%" style="height: 80px;"></object>
+    <object data="html/header2.html" width="100%" style="height: 80px;"></object>
 
     <div class="container text-center">
         <div>
@@ -45,9 +45,7 @@
                         </div>
                         <div class="col-md-5">
                             <label for="originCountry">País origen:</label>
-                            <select id="originCountry" name="originCountry" class="form-control" required>
-                                <option value="">Escoge un país</option>
-                            </select>
+                            <select id="originCountry" name="originCountry" class="form-control" required></select>
                         </div>
                         <div class="col-md-3">
                             <label>Fecha de inicio:</label>
@@ -62,9 +60,7 @@
                         </div>
                         <div class="col-md-5">
                             <label for="destinationCountry">País destino:</label>
-                            <select id="destinationCountry" name="destinationCountry" class="form-control" required>
-                                <option value="">Escoge un país</option>
-                            </select>
+                            <select id="destinationCountry" name="destinationCountry" class="form-control" required></select>
                         </div>
                         <div class="col-md-3">
                             <label for="endDate">Fecha fin:</label>
@@ -82,15 +78,15 @@
                         <div class="col-md-3">
                             <label>Motivo:</label>
                             <br>
-                            <label class="btn btn-outline-primary">
+                            <label class="btn btn-outline-success">
                                 <input type="radio" name="options" autocomplete="off" value="1" required> Ocio
                             </label>
-                            <label class="btn btn-outline-primary">
+                            <label class="btn btn-outline-success">
                                 <input type="radio" name="options" autocomplete="off" value="3" required> Trabajo
                             </label>
                         </div>
                     </div>
-                </div>        
+                </div>
                 <button id="send" name="send" type="submit" class="btn btn-success">Actualizar datos</button>
             </form>
         </div>

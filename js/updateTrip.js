@@ -16,6 +16,7 @@ $(document).ready(function () {
         window.location.href = "mostrar_datos.html";
     }
     else {
+        var trip = JSON.parse(tripToUpdate);
 
         $.ajax({
             type: "GET",
@@ -27,6 +28,13 @@ $(document).ready(function () {
                 countries.forEach(country => {
                     originCountrySelect.options[originCountrySelect.options.length] = new Option(country.name, country.code);
                     destinationCountrySelect.options[destinationCountrySelect.options.length] = new Option(country.name, country.code);
+
+                    if(country.code.toLowerCase() == trip.originCountry.toLowerCase()){
+                        originCountrySelect.options[originCountrySelect.options.length-1].setAttribute('selected','selected');
+                    }
+                    if(country.code.toLowerCase() == trip.destinationCountry.toLowerCase()){
+                        destinationCountrySelect.options[destinationCountrySelect.options.length-1].setAttribute('selected','selected');
+                    }
                 });
             },
             error: function () {
@@ -34,21 +42,13 @@ $(document).ready(function () {
             }
         });
 
-        var trip = JSON.parse(tripToUpdate);
         $("#origin").val(trip.origin);
-        //$("#originCountry").find("option[value="+trip.originCountry+"]").index();
-        $("#originCountry").val(trip.originCountry).prop('selected', true);
         $("#destination").val(trip.destination);
-       // $("#destinationCountry").val(trip.destinationCountry);
         $("#startDate").val(trip.startDate);
         $("#endDate").val(trip.endDate);
         $("input:radio[name='options'][value=" + trip.reasonId + "]").prop('checked', true);
         $("#price").val(trip.price);
     }
-
-    // $("#back").click(function () {
-    //     window.location.href = "mostrar_datos.html";
-    // });
 
     $("#updateTripForm").submit(function (event) {
         event.preventDefault();
@@ -71,8 +71,6 @@ function updateTrip() {
         reasonId: $("input:radio[name='options']:checked").val(),
         price: $('#price').val()
     })
-
-
 
     $.ajax({
         type: "PUT",
