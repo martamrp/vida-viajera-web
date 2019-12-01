@@ -51,7 +51,7 @@ $(document).ready(function() {
                         if (countryCodes.includes(country.code)) {
                             flags += "<img src='./img/flags2/" + country.code + ".svg' width='30px' title='" + country.name + "' /> ";
                         } else {
-                            flags += "<img style='-webkit-filter: grayscale(100%); filter: grayscale(100%);' src='./img/flags2/" + country.code + ".svg' width='30px' title='" + country.name + "' /> ";
+                            flags += "<img class='img-grey' src='./img/flags2/" + country.code + ".svg' width='30px' title='" + country.name + "' /> ";
                         }
                     });
                     $('#flags').prepend(flags);
