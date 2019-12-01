@@ -6,23 +6,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Estadísticas</title>
+    <title>Logros</title>
 
     <!-- Icon -->
     <link rel="shortcut icon" type="image/png" href="./img/favicon.png" />
 
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <!--Fontawesome CDN-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!--ChartJS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css">
+
+    <link rel="stylesheet" href="./css/achievements.css">
 
     <!--Javascript-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 
-    <script type="text/javascript" src="js/stats.js"></script>
+    <script type="text/javascript" src="js/achievements.js"></script>
     <script type="text/javascript" src="js/general.js"></script>
 </head>
 
@@ -30,20 +35,17 @@
     <object data="html/header.html" width="100%" style="height: 75px;"></object>
 
     <div class="container">
-        <h3 class="p-3 text-danger border-bottom border-danger text-center">Datos de interés de tu vida viajera:</h3>
+        <h3 class="p-3 text-warning border-bottom border-warning text-center">Logros que has obtenido:</h3>
+        <div class="row">
+            <div style="width: 30%;">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div style="width: 30%;">
+                <canvas id="myChart2"></canvas>
+            </div>
+        </div>
         <br>
-        <ul>
-            <li id="info1"></li>
-            <li id="info2"></li>
-            <li id="info3"></li>
-            <li id="info4"></li>
-            <li id="info5"></li>
-            <li id="info6"></li>
-            <li id="info7"></li>
-            <li id="info8"></li>
-            <li id="info9"></li>
-            <li id="info10"></li>
-        </ul>
+        <p class="text-center" id="flags"></p>
     </div>
 </body>
 

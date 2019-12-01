@@ -41,25 +41,6 @@ $(document).ready(function() {
         success: function(countryCodes) {
             $('#info8').text("Has estado en " + countryCodes.length + " países diferentes.");
             $('#info10').text("Y has recorrido el " + (countryCodes.length / 247 * 100).toFixed(2) + "% del mundo!");
-
-            $.ajax({
-                type: "GET",
-                url: Server + "/countries/",
-                success: function(countries) {
-                    var flags = "";
-                    countries.forEach(country => {
-                        if (countryCodes.includes(country.code)) {
-                            flags += "<img src='./img/flags2/" + country.code + ".svg' width='30px' title='" + country.name + "' /> ";
-                        } else {
-                            flags += "<img class='img-grey' src='./img/flags2/" + country.code + ".svg' width='30px' title='" + country.name + "' /> ";
-                        }
-                    });
-                    $('#flags').prepend(flags);
-                },
-                error: function() {
-                    alert('Ha ocurrido un error inesperado al obtener la lista de paises');
-                }
-            });
         },
         error: function() {
             alert('Ha ocurrido un error inesperado al obtener tus paises visitados');
