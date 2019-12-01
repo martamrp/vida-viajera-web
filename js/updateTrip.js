@@ -20,7 +20,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "GET",
-            url: "http://localhost:8080/countries",
+            url: Server+"/countries",
             contentType: "application/json",
             success: function (countries) {
                 var originCountrySelect = document.getElementById("originCountry");
@@ -74,7 +74,7 @@ function updateTrip() {
 
     $.ajax({
         type: "PUT",
-        url: "http://localhost:8080/trips/" + trip.id,
+        url: Server+"/trips/" + trip.id,
         contentType: "application/json",
         data: json,
         success: function (trip) {

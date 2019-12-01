@@ -1,9 +1,9 @@
-$(document).ready(function () {
+$(document).ready(function() {
     if (localStorage['userId'] === undefined) {
         window.location.href = "login.html";
     }
 
-    $("#logout").click(function () {
+    $("#logout").click(function() {
         localStorage.removeItem('userId');
     });
 
@@ -11,16 +11,16 @@ $(document).ready(function () {
     //     window.location.href = "mostrar_datos.html";
     // });
 
-    $("#addTripForm").submit(function (event) {
+    $("#addTripForm").submit(function(event) {
         event.preventDefault();
         createTrip();
     });
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/countries",
+        url: Server + "/countries",
         contentType: "application/json",
-        success: function (countries) {
+        success: function(countries) {
             var originCountrySelect = document.getElementById("originCountry");
             var destinationCountrySelect = document.getElementById("destinationCountry");
             countries.forEach(country => {
@@ -28,7 +28,7 @@ $(document).ready(function () {
                 destinationCountrySelect.options[destinationCountrySelect.options.length] = new Option(country.name, country.code);
             });
         },
-        error: function () {
+        error: function() {
             alert('Ha ocurrido un error inesperado');
         }
     });
@@ -48,19 +48,18 @@ function createTrip() {
     })
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/trips",
+        url: Server + "/trips",
         contentType: "application/json",
         data: json,
-        success: function (trip) {
+        success: function(trip) {
             // añadir viaje
             alert('El viaje se ha añadido correctamente.');
             window.location.href = "mostrar_datos.html";
         },
-        error: function (xhr) {
+        error: function(xhr) {
             if (xhr.status == 400 || xhr.status == 409) {
                 alert(xhr.responseText);
-            }
-            else {
+            } else {
                 alert('Ha ocurrido un error inesperado');
             }
         }

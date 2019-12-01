@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     var userId = localStorage['userId'];
     if (userId === undefined) {
         window.location.href = "login.html";
@@ -16,14 +16,14 @@ $(document).ready(function () {
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/users/" + userId + "/countries",
+        url: Server + "/users/" + userId + "/countries",
         contentType: "application/json",
-        success: function (countries) {
+        success: function(countries) {
             countries.forEach(countryCode => {
                 addCountryToMap(mymap, countryCode);
             });
         },
-        error: function () {
+        error: function() {
             alert('Ha ocurrido un error inesperado');
         }
     });
@@ -32,17 +32,17 @@ $(document).ready(function () {
 function addCountryToMap(mymap, countryCode) {
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/countries/" + countryCode,
+        url: Server + "/countries/" + countryCode,
         contentType: "application/json",
-        success: function (country) {
+        success: function(country) {
             var myIcon = L.icon({
-                iconUrl: './img/flags/'+country.code+'.svg',
+                iconUrl: './img/flags/' + country.code.toLowerCase() + '.svg',
                 iconSize: [32, 32],
                 iconAnchor: [16, 32]
             });
             L.marker([country.lat, country.lng], { title: country.name, icon: myIcon, autopan: true }).addTo(mymap);
         },
-        error: function () {
+        error: function() {
             alert('Ha ocurrido un error inesperado');
         }
     });

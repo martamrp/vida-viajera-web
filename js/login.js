@@ -3,7 +3,7 @@ $(document).ready(function () {
     event.preventDefault();
     $.ajax({
       type: "POST",
-      url: "http://localhost:8080/users/login",
+      url: Server+"/users/login",
       contentType: "application/json",
       data: JSON.stringify({
         username: $('#username').val(),
