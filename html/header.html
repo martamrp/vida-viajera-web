@@ -3,12 +3,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/header.css">
+
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <base target="_parent">
 
-<body>
+<body style="background-color:rgba(255,255,255,0.5);">
     <div class="container">
         <div class="row pt-3">
             <div class="col-md-5 text-left">
@@ -18,14 +21,12 @@
                 </h2>
             </div>
             <div class="col-sm-7 text-right">
-                <a id="addtrip" name="addtrip" class="btn btn-outline-primary" href="../crear_viaje.html" role="button">Añadir
-                    viaje</a>
-                <a class="btn btn-outline-success" href="../mostrar_datos.html" role="button">Vida Viajera</a>
-                <a class="btn btn-outline-danger" href="../stats.html" role="button">Estadísticas</a>
-                <a class="btn btn-outline-warning" href="../achievements.html" role="button">Logros</a>
-                <a class="btn btn-outline-secondary" href="../map.html" role="button">Mapa</a>
-                <a id="logout" name="logout" class="btn btn-outline-info" href="../login.html" role="button">Cerrar
-                    sesión</a>
+                <a id="addtrip" name="addtrip" class="btn" href="../createTrip.html" role="button">Añadir viaje</a>
+                <a id="traveltrip" class="btn" href="../mostrar_datos.html" role="button">Vida Viajera</a>
+                <a id="stats" class="btn" href="../stats.html" role="button">Estadísticas</a>
+                <a id="achievements" class="btn" href="../achievements.html" role="button">Logros</a>
+                <a id="map" class="btn" href="../map.html" role="button">Mapa</a>
+                <a id="logout" name="logout" class="btn" href="../login.html" role="button">Cerrar sesión</a>
             </div>
         </div>
     </div>
