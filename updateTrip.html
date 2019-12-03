@@ -11,6 +11,9 @@
     <!-- Icon -->
     <link rel="shortcut icon" type="image/png" href="./img/favicon.png" />
 
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="./css/create_updateTrip.css" />
+
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -26,25 +29,23 @@
 </head>
 
 <body>
-    <object data="html/header.html" width="100%" style="height: 80px;"></object>
-
-    <div class="container text-center">
+    <object data="html/header.html" width="100%" style="height: 72px;"></object>
+    <div class="login-div mt-4 pb-3 container text-center" style="width: 60%">
         <div>
             <form id="updateTripForm">
-                <h3 class="p-3 text-success border-bottom border-success">Actualizar datos del viaje:</h3>
+                <h3 class="p-3">Actualizar datos del viaje</h3>
                 <br>
-                <!-- <div class="contenido_formulario text-left"> -->
                 <div class="text-left">
                     <div class="row">
                         <div class="col-md-4">
                             <label for="origin">Origen:</label>
                             <input id="origin" name="origin" type="text" class="form-control" required autofocus>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-4">
                             <label for="originCountry">País origen:</label>
                             <select id="originCountry" name="originCountry" class="form-control" required></select>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <label>Fecha de inicio:</label>
                             <input id="startDate" name="startDate" type="date" class="form-control" required>
                         </div>
@@ -55,36 +56,36 @@
                             <label for="destination">Destino:</label>
                             <input id="destination" name="destination" type="text" class="form-control" required>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-4">
                             <label for="destinationCountry">País destino:</label>
                             <select id="destinationCountry" name="destinationCountry" class="form-control" required></select>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <label for="endDate">Fecha fin:</label>
                             <input id="endDate" name="endDate" type="date" class="form-control" required>
                         </div>
                     </div>
                     <br>
                     <div class="row">
-                        <div class="col-md-2">
-                            <label for="price">Precio total:</label>
+                        <div class="col-md-3">
+                            <label for="price">Precio total (€):</label>
                             <input id="price" name="price" type="number" class="form-control" required>
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-md-5">
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <label>Motivo:</label>
                             <br>
-                            <label class="btn btn-outline-success">
+                            <label id="leisure" class="btn">
                                 <input type="radio" name="options" autocomplete="off" value="1" required> Ocio
                             </label>
-                            <label class="btn btn-outline-success">
+                            <label id="business" class="btn">
                                 <input type="radio" name="options" autocomplete="off" value="3" required> Trabajo
                             </label>
                         </div>
                     </div>
                 </div>
-                <button id="send" name="send" type="submit" class="btn btn-success">Actualizar datos</button>
+                <button id="send" name="send" type="submit" class="btn">Actualizar datos</button>
             </form>
         </div>
     </div>

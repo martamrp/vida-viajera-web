@@ -11,6 +11,9 @@
     <!-- Icon -->
     <link rel="shortcut icon" type="image/png" href="./img/favicon.png" />
 
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="./css/stats.css" />
+
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -27,15 +30,18 @@
 </head>
 
 <body>
-    <object data="html/header.html" width="100%" style="height: 75px;"></object>
-
-    <div class="container">
-        <h3 class="p-3 text-danger border-bottom border-danger text-center">Datos de interés de tu vida viajera:</h3>
-        <br>
-        <div class="text-center">
-            <h5 id="noTrips"></h5>
+    <object data="html/header.html" width="100%" style="height: 72px;"></object>
+    <div class="stats-div mt-4 pb-3 container text-center" style="width: 60%">
+        <div>
+            <h3 class="p-3">Datos de interés de tu vida viajera</h3>
+            <br>
+            <div>
+                <h5 id="noTrips"></h5>
+            </div>
+            <div class="text-left">
+                <p id="statsList"></p>
+            </div>
         </div>
-        <ul id="statsList"></ul>
     </div>
 </body>
 

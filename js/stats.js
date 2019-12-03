@@ -23,8 +23,8 @@ $(document).ready(function() {
                 $('#statsList').append("<li>El viaje más económico ha sido a " + stats.cheapestTrip.destination + " y ha costado " + stats.cheapestTrip.price + " euros.</li>");
                 $('#statsList').append("<li>El viaje más caro ha sido a " + stats.mostExpensiveTrip.destination + " y ha costado " + stats.mostExpensiveTrip.price + " euros.</li>");
                 $('#statsList').append("<li>Has hecho " + stats.leisureTrips + " viaje/s por ocio y " + stats.businessTrips + " viaje/s por trabajo.</li>");
-                $('#statsList').append("<li>Tu viaje más corto ha sido a " + stats.shortestTrip.destination + " y a durado " + getTotalDays(new Date(stats.shortestTrip.startDate), new Date(stats.shortestTrip.endDate)) + " días.</li>");
-                $('#statsList').append("<li>Tu viaje más largo ha sido a " + stats.longestTrip.destination + " y a durado " + getTotalDays(new Date(stats.longestTrip.startDate), new Date(stats.longestTrip.endDate)) + " días.</li>");
+                $('#statsList').append("<li>Tu viaje más corto ha sido a " + stats.shortestTrip.destination + " y ha durado " + getTotalDays(new Date(stats.shortestTrip.startDate), new Date(stats.shortestTrip.endDate)) + " día/s.</li>");
+                $('#statsList').append("<li>Tu viaje más largo ha sido a " + stats.longestTrip.destination + " y ha durado " + getTotalDays(new Date(stats.longestTrip.startDate), new Date(stats.longestTrip.endDate)) + " días.</li>");
                 var cheapestTripPerDay = stats.cheapestTripPerDay.price / getTotalDays(new Date(stats.cheapestTripPerDay.startDate), new Date(stats.mostExpensiveTripPerDay.endDate));
                 $('#statsList').append("<li>En proporción el viaje más barato que has hecho es " + stats.cheapestTripPerDay.destination +
                     " con un coste de " + cheapestTripPerDay.toFixed(2) + "€/día.</li>");

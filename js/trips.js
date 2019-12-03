@@ -87,7 +87,7 @@ $(document).ready(function() {
             $('#tripsTable').on('click', '#update', function() {
                 var trip = table.row($(this).parents('tr')).data();
                 localStorage['trip'] = JSON.stringify(trip);
-                window.location.href = "actualizar_viaje.html";
+                window.location.href = "updateTrip.html";
             });
 
             $('#tripsTable').on('click', '#delete', function() {
