@@ -29,7 +29,7 @@ $(document).ready(function() {
                         data: {
                             datasets: [{
                                 data: [countryCodes.length, countries.length - countryCodes.length],
-                                backgroundColor: ['rgba(255, 205, 86, 1)', 'rgba(75, 192, 192, 1)']
+                                backgroundColor: ['rgb(85, 57, 115)', 'rgb(157, 104, 197)']
                             }],
                             labels: [
                                 'Visitados',
@@ -48,9 +48,9 @@ $(document).ready(function() {
                     var flags = "";
                     countries.forEach(country => {
                         if (countryCodes.includes(country.code)) {
-                            flags += "<img src='./img/flags2/" + country.code + ".svg' width='30px' title='" + country.name + "' /> ";
+                            flags += "<img src='./img/flags2/" + country.code + ".svg' width='24px' title='" + country.name + "' /> ";
                         } else {
-                            flags += "<img class='img-grey' src='./img/flags2/" + country.code + ".svg' width='30px' title='" + country.name + "' /> ";
+                            flags += "<img class='img-grey' src='./img/flags2/" + country.code + ".svg' width='24px' title='" + country.name + "' /> ";
                         }
                     });
                     $('#flags').prepend(flags);
@@ -76,7 +76,7 @@ $(document).ready(function() {
                 data: {
                     datasets: [{
                         data: [regions.length, 6 - regions.length],
-                        backgroundColor: ['rgba(255, 205, 86, 1)', 'rgba(75, 192, 192, 1)']
+                        backgroundColor: ['rgb(85, 57, 115)', 'rgb(137, 84, 197)']
                     }],
                     labels: [
                         'Visitados',

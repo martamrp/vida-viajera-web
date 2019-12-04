@@ -2,3 +2,22 @@
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
+
+h3 {
+    color: rgb(85, 57, 115);
+    border-bottom: 2px solid rgb(85, 57, 115);
+}
+
+body {
+    background: url('../img/login/bg-01.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.achieve-div {
+    border-radius: 25px;
+    box-shadow: 0 1rem 3rem 2px rgba(0, 0, 0, 1);
+    background-color: rgba(255, 255, 255, 0.95);
+}
