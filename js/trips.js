@@ -91,30 +91,43 @@ $(document).ready(function() {
             });
 
             $('#tripsTable').on('click', '#delete', function() {
-                var question = confirm("¿Estás seguro que deseas eliminar este viaje?");
-                if (question == true) {
-                    var trip = table.row($(this).parents('tr')).data();
-
-                    $.ajax({
-                        type: "DELETE",
-                        url: Server + "/trips/" + trip.id,
-                        contentType: "application/json",
-                        success: function(trip) {
-                            window.location.href = "trips.html";
-                            alert("El viaje ha sido eliminado");
+                swal({
+                        title: "¿Estás seguro?",
+                        text: "Una vez eliminado, no será posible recuperar el viaje!",
+                        icon: "warning",
+                        buttons: {
+                            cancel: "Cancelar",
+                            confirm: "Aceptar"
                         },
-                        error: function(xhr) {
-                            if (xhr.status == 400 || xhr.status == 409) {
-                                alert(xhr.responseText);
-                            } else {
-                                alert('Ha ocurrido un error inesperado');
-                            }
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            var trip = table.row($(this).parents('tr')).data();
+
+                            $.ajax({
+                                type: "DELETE",
+                                url: Server + "/trips/" + trip.id,
+                                contentType: "application/json",
+                                success: function(trip) {
+                                    swal("Tu viaje ha sido eliminado!", {
+                                            icon: "success",
+                                        })
+                                        .then(() => {
+                                            window.location.href = "trips.html";
+                                        });
+                                },
+                                error: function(xhr) {
+                                    swal("Ups!", "Ha ocurrido un error inesperado!", "error");
+                                }
+                            });
+                        } else {
+                            swal({
+                                text: "No has eliminado tu viaje",
+                                icon: "info"
+                            });
                         }
                     });
-                    return false;
-                } else {
-                    alert("El viaje no ha sido eliminado");
-                }
             });
         },
         error: function() {
