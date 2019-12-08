@@ -9,10 +9,6 @@ $(document).ready(function() {
         localStorage.removeItem('userId');
     });
 
-    $("#back").click(function() {
-        window.location.href = "mostrar_datos.html";
-    });
-
     $.ajax({
         type: "GET",
         url: Server + "/users/" + userId + "/countries",

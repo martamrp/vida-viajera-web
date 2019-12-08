@@ -48,9 +48,7 @@ function createTrip() {
         contentType: "application/json",
         data: json,
         success: function(trip) {
-            // añadir viaje
-            alert('El viaje se ha añadido correctamente.');
-            window.location.href = "mostrar_datos.html";
+            window.location.href = "trips.html";
         },
         error: function(xhr) {
             if (xhr.status == 400 || xhr.status == 409) {

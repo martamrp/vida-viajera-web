@@ -14,7 +14,7 @@ $(document).ready(function() {
                 // Guardar el id en la sesion
                 localStorage['userId'] = user.id;
                 localStorage['username'] = user.username;
-                window.location.href = "mostrar_datos.html";
+                window.location.href = "trips.html";
             },
             error: function() {
                 alert('Ha ocurrido un error inesperado');

@@ -66,7 +66,7 @@ $(document).ready(function() {
                     {
                         "data": null,
                         "sortable": false,
-                        "render": function(data, type, full) {
+                        "render": function() {
                             return '<input type="image" width="24px" id="update" src="./img/icons8-edit-64.png" alt="Submit Form" title="Editar" />' +
                                 '<input type="image" width="24px" id="delete" src="./img/icons8-delete-bin-64.png" alt="Submit Form" title="Eliminar" />';
                         }
@@ -100,8 +100,7 @@ $(document).ready(function() {
                         url: Server + "/trips/" + trip.id,
                         contentType: "application/json",
                         success: function(trip) {
-                            // eliminar viaje
-                            window.location.href = "mostrar_datos.html";
+                            window.location.href = "trips.html";
                             alert("El viaje ha sido eliminado");
                         },
                         error: function(xhr) {

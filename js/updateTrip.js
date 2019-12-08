@@ -1,43 +1,42 @@
-$(document).ready(function () {
+$(document).ready(function() {
     if (localStorage['userId'] === undefined) {
         window.location.href = "login.html";
     }
 
-    $("#logout").click(function () {
+    $("#logout").click(function() {
         localStorage.removeItem('userId');
     });
 
-    $(window).on("beforeunload", function () {
+    $(window).on("beforeunload", function() {
         localStorage.removeItem('trip');
     });
 
     var tripToUpdate = localStorage['trip'];
     if (tripToUpdate === undefined) {
-        window.location.href = "mostrar_datos.html";
-    }
-    else {
+        window.location.href = "trips.html";
+    } else {
         var trip = JSON.parse(tripToUpdate);
 
         $.ajax({
             type: "GET",
-            url: Server+"/countries",
+            url: Server + "/countries",
             contentType: "application/json",
-            success: function (countries) {
+            success: function(countries) {
                 var originCountrySelect = document.getElementById("originCountry");
                 var destinationCountrySelect = document.getElementById("destinationCountry");
                 countries.forEach(country => {
                     originCountrySelect.options[originCountrySelect.options.length] = new Option(country.name, country.code);
                     destinationCountrySelect.options[destinationCountrySelect.options.length] = new Option(country.name, country.code);
 
-                    if(country.code.toLowerCase() == trip.originCountry.toLowerCase()){
-                        originCountrySelect.options[originCountrySelect.options.length-1].setAttribute('selected','selected');
+                    if (country.code.toLowerCase() == trip.originCountry.toLowerCase()) {
+                        originCountrySelect.options[originCountrySelect.options.length - 1].setAttribute('selected', 'selected');
                     }
-                    if(country.code.toLowerCase() == trip.destinationCountry.toLowerCase()){
-                        destinationCountrySelect.options[destinationCountrySelect.options.length-1].setAttribute('selected','selected');
+                    if (country.code.toLowerCase() == trip.destinationCountry.toLowerCase()) {
+                        destinationCountrySelect.options[destinationCountrySelect.options.length - 1].setAttribute('selected', 'selected');
                     }
                 });
             },
-            error: function () {
+            error: function() {
                 alert('Ha ocurrido un error inesperado');
             }
         });
@@ -50,7 +49,7 @@ $(document).ready(function () {
         $("#price").val(trip.price);
     }
 
-    $("#updateTripForm").submit(function (event) {
+    $("#updateTripForm").submit(function(event) {
         event.preventDefault();
         updateTrip();
     });
@@ -74,19 +73,16 @@ function updateTrip() {
 
     $.ajax({
         type: "PUT",
-        url: Server+"/trips/" + trip.id,
+        url: Server + "/trips/" + trip.id,
         contentType: "application/json",
         data: json,
-        success: function (trip) {
-            // actualizar viaje
-            alert('Tu viaje ha sido actualizado');
-            window.location.href = "mostrar_datos.html";
+        success: function(trip) {
+            window.location.href = "trips.html";
         },
-        error: function (xhr) {
+        error: function(xhr) {
             if (xhr.status == 400 || xhr.status == 409) {
                 alert(xhr.responseText);
-            }
-            else {
+            } else {
                 alert('Ha ocurrido un error inesperado');
             }
         }
