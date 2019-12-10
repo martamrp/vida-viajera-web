@@ -16,8 +16,12 @@ $(document).ready(function() {
                 localStorage['username'] = user.username;
                 window.location.href = "trips.html";
             },
-            error: function() {
-                alert('Ha ocurrido un error inesperado');
+            error: function(xhr) {
+                if (xhr.status == 400) {
+                    swal("Contraseña incorrecta!", { icon: "error", })
+                } else {
+                    swal("Ha ocurrido un error inesperado!", { icon: "error", })
+                }
             }
         });
         return false;
