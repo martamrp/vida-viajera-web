@@ -24,7 +24,7 @@ $(document).ready(function() {
             });
         },
         error: function() {
-            alert('Ha ocurrido un error inesperado');
+            swal("Ha ocurrido un error inesperado!", { icon: "error", });
         }
     });
 });
@@ -43,7 +43,7 @@ function addCountryToMap(mymap, countryCode) {
             L.marker([country.lat, country.lng], { title: country.name, icon: myIcon, autopan: true }).addTo(mymap);
         },
         error: function() {
-            alert('Ha ocurrido un error inesperado');
+            swal("Ha ocurrido un error inesperado!", { icon: "error", });
         }
     });
 }

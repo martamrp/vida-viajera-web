@@ -21,7 +21,7 @@ $(document).ready(function() {
             $('#imgFlags').prepend(imgFlags);
         },
         error: function() {
-            alert('Ha ocurrido un error inesperado');
+            swal("Ha ocurrido un error inesperado!", { icon: "error", });
         }
     });
 
@@ -131,7 +131,7 @@ $(document).ready(function() {
             });
         },
         error: function() {
-            alert('Ha ocurrido un error inesperado');
+            swal("Ha ocurrido un error inesperado!", { icon: "error", });
         }
     });
 });

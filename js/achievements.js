@@ -52,12 +52,12 @@ $(document).ready(function() {
                     $('#flags').prepend(flags);
                 },
                 error: function() {
-                    alert('Ha ocurrido un error inesperado al obtener la lista de paises');
+                    swal("Ha ocurrido un error inesperado al obtener la lista de paises!", { icon: "error", });
                 }
             });
         },
         error: function() {
-            alert('Ha ocurrido un error inesperado al obtener tus paises visitados');
+            swal("Ha ocurrido un error inesperado al obtener tus paises visitados!", { icon: "error", });
         }
     });
 
@@ -89,7 +89,7 @@ $(document).ready(function() {
             });
         },
         error: function() {
-            alert('Ha ocurrido un error inesperado');
+            swal("Ha ocurrido un error inesperado!", { icon: "error", });
         }
     });
 });

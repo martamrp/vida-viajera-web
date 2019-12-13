@@ -25,7 +25,7 @@ $(document).ready(function() {
             });
         },
         error: function() {
-            alert('Ha ocurrido un error inesperado');
+            swal("Ha ocurrido un error inesperado!", { icon: "error", });
         }
     });
 });
@@ -51,11 +51,7 @@ function createTrip() {
             window.location.href = "trips.html";
         },
         error: function(xhr) {
-            if (xhr.status == 400 || xhr.status == 409) {
-                alert(xhr.responseText);
-            } else {
-                alert('Ha ocurrido un error inesperado');
-            }
+            swal("Ha ocurrido un error inesperado!", { icon: "error", });
         }
     });
     return false;

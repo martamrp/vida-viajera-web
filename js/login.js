@@ -18,9 +18,9 @@ $(document).ready(function() {
             },
             error: function(xhr) {
                 if (xhr.status == 400) {
-                    swal("Contraseña incorrecta!", { icon: "error", })
+                    swal("Contraseña incorrecta!", { icon: "error", });
                 } else {
-                    swal("Ha ocurrido un error inesperado!", { icon: "error", })
+                    swal("Ha ocurrido un error inesperado!", { icon: "error", });
                 }
             }
         });

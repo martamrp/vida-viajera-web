@@ -46,18 +46,18 @@ $(document).ready(function() {
                                 $('#statsList').append("<li>Y has recorrido el " + (countryCodes.length / 247 * 100).toFixed(2) + "% del mundo!</li>");
                             },
                             error: function() {
-                                alert('Ha ocurrido un error inesperado');
+                                swal("Ha ocurrido un error inesperado!", { icon: "error", });
                             }
                         });
                     },
                     error: function() {
-                        alert('Ha ocurrido un error inesperado al obtener tus paises visitados');
+                        swal("Ha ocurrido un error inesperado al obtener tus paises visitados!", { icon: "error", });
                     }
                 });
             }
         },
         error: function() {
-            alert('Ha ocurrido un error inesperado al obtener tus estadísticas');
+            swal("Ha ocurrido un error inesperado al obtener tus estadísticas!", { icon: "error", });
         }
     });
 });
