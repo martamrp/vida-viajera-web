@@ -29,7 +29,7 @@ steps:
     KUBECONFIG: /drone/src/.kube/config
   commands:
   #- sudo mkdir /.kube
-  - apt-get update
-  - apt-get install -qq -y gettext
+  - apk update
+  - apk install -y gettext
   - envsubst < .k8s/config_template > .k8s/config
   - kubectl get pods -A
