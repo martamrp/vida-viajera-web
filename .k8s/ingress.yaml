@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ${APP_NAME}
+  namespace: ${NAMESPACE}
+  annotations:
+    kubernetes.io/ingress.class: ${INGRESS_CLASS}
+    cert-manager.io/cluster-issuer: ${CLUSTER_ISSUER}
+    nginx.ingress.kubernetes.io/app-root: /login.html
+#    nginx.ingress.kubernetes.io/auth-url: "http://oauth2-proxy.ingress.svc.cluster.local/oauth2/auth"
+#    nginx.ingress.kubernetes.io/auth-signin: "https://auth.anieto.dev/oauth2/start"
+spec:
+  tls:
+    - hosts:
+        - ${SUBDOMAIN}.${DOMAIN}
+      secretName: ${TLS_SECRET_NAME}
+  rules:
+    - host: ${SUBDOMAIN}.${DOMAIN}
+      http:
+        paths:
+          - backend:
+              serviceName: ${APP_NAME}
+              servicePort: http
+            path: /
