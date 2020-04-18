@@ -18,8 +18,8 @@ steps:
   - name: deploy
     image: bitnami/kubectl
     environment:
-      - CONFIG:
-          from_secret: kube_config
+      CONFIG:
+        from_secret: kube_config
       #- KUBECONFIG=/.kube/config
     commands:
       - mkdir /.kube
