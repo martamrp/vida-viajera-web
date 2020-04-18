@@ -1,1 +1,1 @@
-const Server = 'https://vida-viajera-api.anieto.dev';
+const Server = 'https://vidaviajera-api.anieto.dev';
