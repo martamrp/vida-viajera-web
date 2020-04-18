@@ -1,1 +1,1 @@
-const Server = 'http://localhost:8080';
+const Server = 'https://vida-viajera-api.anieto.dev';
