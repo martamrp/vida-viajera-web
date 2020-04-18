@@ -30,6 +30,7 @@ steps:
     NAMESPACE: production
     SUBDOMAIN: vidaviajera
     PULL_SECRET: regcred
+    DOCKER_REGISTRY: registry.anieto.dev/v2/adrian
   # commands:
   # #- sudo mkdir /.kube
   # #- apk update
