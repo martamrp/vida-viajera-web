@@ -26,7 +26,6 @@ steps:
       from_secret: K8S_USER
     K8S_PASSWORD:
       from_secret: K8S_PASSWORD
-    KUBECONFIG: /drone/src/.kube/config
   # commands:
   # #- sudo mkdir /.kube
   # #- apk update
