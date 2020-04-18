@@ -2,29 +2,32 @@ kind: pipeline
 name: default
 
 steps:
-  - name: bake
-    image: plugins/docker
-    settings:
-      username:
-        from_secret: docker_user
-      password:
-        from_secret: docker_pass
-      repo: registry.anieto.dev/v2/adrian/vida-viajera-web
-      registry: registry.anieto.dev/v2
-      tags: 1.0.0.${CI_BUILD_NUMBER}
-    when:
-      branch:
-        - master
-  - name: deploy
-    image: bitnami/kubectl
-    environment:
-      CONFIG:
-        from_secret: kube_config
-      #- KUBECONFIG=/.kube/config
-    commands:
-      #- sudo mkdir /.kube
-      - echo "${CONFIG}" > /.kube/config
-      - kubectl get pods -A
-    volumes:
-    - name: kube_config
-      path: /.kube
+- name: bake
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_user
+    password:
+      from_secret: docker_pass
+    repo: registry.anieto.dev/v2/adrian/vida-viajera-web
+    registry: registry.anieto.dev/v2
+    tags: 1.0.0.${CI_BUILD_NUMBER}
+  when:
+    branch:
+    - master
+- name: deploy
+  image: bitnami/kubectl
+  environment:
+    CONFIG:
+      from_secret: kube_config
+    #- KUBECONFIG=/.kube/config
+  commands:
+  #- sudo mkdir /.kube
+  - echo "${CONFIG}" > /.kube/config
+  - kubectl get pods -A
+  volumes:
+  - name: kube_config
+    path: /.kube
+volumes:
+- name: kube_config
+  temp: {}
