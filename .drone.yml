@@ -15,3 +15,13 @@ steps:
     when:
       branch:
         - master
+  - name: deploy
+    image: bitnami/kubectl
+    environment:
+      - CONFIG:
+          from_secret: kube_config
+      #- KUBECONFIG=/.kube/config
+    commands:
+      - mkdir /.kube
+      - echo "${CONFIG}" > /.kube/config
+      - kubectl get pods -A
