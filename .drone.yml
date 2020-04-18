@@ -27,9 +27,9 @@ steps:
     K8S_PASSWORD:
       from_secret: K8S_PASSWORD
     DOMAIN: anieto.dev
-    #NAMESPACE: production
-    #SUBDOMAIN: vidaviajera
-    #PULL_SECRET: regcred
+    NAMESPACE: production
+    SUBDOMAIN: vidaviajera
+    PULL_SECRET: regcred
   # commands:
   # #- sudo mkdir /.kube
   # #- apk update
