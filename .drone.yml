@@ -22,8 +22,9 @@ steps:
         from_secret: kube_config
       #- KUBECONFIG=/.kube/config
     commands:
-      - pwd
-      - ls -la
       #- sudo mkdir /.kube
-      #- echo "${CONFIG}" > /.kube/config
-      #- kubectl get pods -A
+      - echo "${CONFIG}" > /.kube/config
+      - kubectl get pods -A
+    volumes:
+    - name: kube_config
+      path: /.kube
