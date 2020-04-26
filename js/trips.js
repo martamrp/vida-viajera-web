@@ -16,7 +16,7 @@ $(document).ready(function() {
         success: function(countryCodes) {
             var imgFlags = "";
             countryCodes.forEach(countryCode => {
-                imgFlags += "<img src='./img/flags2/" + countryCode + ".svg' width='30px' title='" + countryCode + "' /> ";
+                imgFlags += "<img src='./img/flags2/" + countryCode.toLowerCase() + ".svg' width='30px' title='" + countryCode + "' /> ";
             });
             $('#imgFlags').prepend(imgFlags);
         },
