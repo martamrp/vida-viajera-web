@@ -44,9 +44,9 @@ $(document).ready(function() {
                     var flags = "";
                     countries.forEach(country => {
                         if (countryCodes.includes(country.code)) {
-                            flags += "<img src='./img/flags2/" + country.code + ".svg' width='24px' title='" + country.name + "' /> ";
+                            flags += "<img src='./img/flags2/" + country.code.toLowerCase() + ".svg' width='24px' title='" + country.name + "' /> ";
                         } else {
-                            flags += "<img class='img-grey' src='./img/flags2/" + country.code + ".svg' width='24px' title='" + country.name + "' /> ";
+                            flags += "<img class='img-grey' src='./img/flags2/" + country.code.toLowerCase() + ".svg' width='24px' title='" + country.name + "' /> ";
                         }
                     });
                     $('#flags').prepend(flags);
