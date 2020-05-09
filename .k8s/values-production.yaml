@@ -1,5 +1,5 @@
 ingress:
-  subdomain: vidaviajera
+  subdomain: vidaviajeras
 
 deployment:
   image: sdjhds
