@@ -7,3 +7,4 @@ deployment:
   image: registry.anieto.dev/v2/adrian/vida-viajera-web
   imagePullSecrets:
   - regcred
+  containerPort: 80
