@@ -1,0 +1,5 @@
+ingress:
+  subdomain: vidaviajera
+
+deployment:
+  image: sdjhds
