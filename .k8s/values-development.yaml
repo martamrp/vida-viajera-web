@@ -1,0 +1,3 @@
+ingress:
+  subdomain: vidaviajera.development
+  oauth2Enabled: true

@@ -2,10 +2,9 @@ ingress:
   enabled: true
   domain: anieto.dev
   subdomain: vidaviajera
+  oauth2Enabled: false
   extraAnnotations:
     nginx.ingress.kubernetes.io/app-root: /login.html
-    # nginx.ingress.kubernetes.io/auth-url: "http://oauth2-proxy.ingress.svc.cluster.local/oauth2/auth"
-    # nginx.ingress.kubernetes.io/auth-signin: "https://auth.anieto.dev/oauth2/start"
 
 deployment:
   image: registry.anieto.dev/v2/adrian/vida-viajera-web
