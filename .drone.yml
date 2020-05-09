@@ -26,6 +26,7 @@ steps:
       from_secret: K8S_USER
     K8S_PASSWORD:
       from_secret: K8S_PASSWORD
+    IMAGE_TAG: 1.0.0.${CI_BUILD_NUMBER}
     # DOMAIN: anieto.dev
     # NAMESPACE: production
     # SUBDOMAIN: vidaviajera

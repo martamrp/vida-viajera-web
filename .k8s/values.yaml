@@ -1,0 +1,9 @@
+ingress:
+  enabled: true
+  domain: anieto.dev
+  subdomain: vidaviajera
+
+deployment:
+  image: registry.anieto.dev/v2/adrian/vida-viajera-web
+  imagePullSecrets:
+  - regcred
