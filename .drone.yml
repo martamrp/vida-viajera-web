@@ -16,7 +16,7 @@ steps:
     branch:
     - master
 - name: deploy
-  image: rubasace/drone-k8s
+  image: rubasace/drone-helm-k8s
   environment:
     K8S_CERT_AUTHORITY_DATA:
       from_secret: K8S_CERT_AUTHORITY_DATA
@@ -26,11 +26,11 @@ steps:
       from_secret: K8S_USER
     K8S_PASSWORD:
       from_secret: K8S_PASSWORD
-    DOMAIN: anieto.dev
-    NAMESPACE: production
-    SUBDOMAIN: vidaviajera
-    PULL_SECRET: regcred
-    DOCKER_REGISTRY: registry.anieto.dev/v2/adrian
+    # DOMAIN: anieto.dev
+    # NAMESPACE: production
+    # SUBDOMAIN: vidaviajera
+    # PULL_SECRET: regcred
+    # DOCKER_REGISTRY: registry.anieto.dev/v2/adrian
   # commands:
   # #- sudo mkdir /.kube
   # #- apk update
